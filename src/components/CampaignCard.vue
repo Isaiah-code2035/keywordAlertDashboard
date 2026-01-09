@@ -1,12 +1,12 @@
 <template>
-  <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+  <div class="bg-seo-card border border-seo-border rounded-lg p-6 hover:bg-seo-card-hover transition-colors">
     <!-- Campaign Name -->
-    <h3 class="text-xl font-bold text-gray-900 mb-2 truncate">
+    <h3 class="text-xl font-bold text-white mb-2 truncate">
       {{ campaign.campaign_name || campaign.name || 'Unnamed Campaign' }}
     </h3>
 
     <!-- Domain -->
-    <p class="text-gray-600 mb-4 truncate">
+    <p class="text-seo-text-muted mb-4 truncate">
       {{ campaign.domain || campaign.url || 'No domain' }}
     </p>
 
@@ -14,7 +14,7 @@
     <div class="space-y-2 mb-6">
       <!-- Drops -->
       <div class="flex items-center justify-between">
-        <span class="text-gray-700">Drops:</span>
+        <span class="text-seo-text">Drops:</span>
         <span class="text-drop-red font-bold text-lg">
           {{ campaign.drops || 0 }}
         </span>
@@ -22,7 +22,7 @@
 
       <!-- Gains -->
       <div class="flex items-center justify-between">
-        <span class="text-gray-700">Gains:</span>
+        <span class="text-seo-text">Gains:</span>
         <span class="text-gain-green font-bold text-lg">
           {{ campaign.gains || 0 }}
         </span>
@@ -32,7 +32,7 @@
     <!-- View Details Button -->
     <button
       @click="viewDetails"
-      class="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium flex items-center justify-center"
+      class="w-full px-4 py-2 bg-seo-purple text-white rounded-lg hover:bg-seo-purple-dark transition-colors font-medium flex items-center justify-center"
     >
       View Details
       <svg

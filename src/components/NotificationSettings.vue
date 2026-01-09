@@ -1,10 +1,10 @@
 <template>
-  <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+  <div class="bg-seo-card border border-seo-border rounded-lg p-6 mb-6">
     <div class="flex items-center justify-between">
       <div>
-        <h2 class="text-xl font-bold text-gray-900">Browser Notifications</h2>
-        <p class="text-sm text-gray-600 mt-1">Get instant alerts when keywords drop or gain positions</p>
-        <p v-if="browserNotificationsStatus" class="text-sm mt-2" :class="browserNotificationsEnabled ? 'text-green-600' : 'text-amber-600'">
+        <h2 class="text-xl font-bold text-white">Browser Notifications</h2>
+        <p class="text-sm text-seo-text-muted mt-1">Get instant alerts when keywords drop or gain positions</p>
+        <p v-if="browserNotificationsStatus" class="text-sm mt-2" :class="browserNotificationsEnabled ? 'text-gain-green' : 'text-amber-500'">
           {{ browserNotificationsStatus }}
         </p>
       </div>
@@ -13,8 +13,8 @@
         :class="[
           'px-6 py-3 rounded-lg font-medium transition-colors shadow-md',
           browserNotificationsEnabled
-            ? 'bg-green-600 text-white hover:bg-green-700'
-            : 'bg-blue-600 text-white hover:bg-blue-700'
+            ? 'bg-gain-green text-white hover:bg-green-700'
+            : 'bg-seo-purple text-white hover:bg-seo-purple-dark'
         ]"
       >
         {{ browserNotificationsEnabled ? '✓ Enabled' : 'Enable Notifications' }}
@@ -22,14 +22,14 @@
     </div>
 
     <!-- Test Button -->
-    <div v-if="browserNotificationsEnabled" class="mt-4 pt-4 border-t">
+    <div v-if="browserNotificationsEnabled" class="mt-4 pt-4 border-t border-seo-border">
       <button
         @click="testBrowserNotification"
-        class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium text-sm"
+        class="px-4 py-2 bg-seo-purple text-white rounded-lg hover:bg-seo-purple-dark transition-colors font-medium text-sm"
       >
         Test Notification
       </button>
-      <p v-if="testResult" class="mt-2 text-sm" :class="testResult.success ? 'text-green-600' : 'text-red-600'">
+      <p v-if="testResult" class="mt-2 text-sm" :class="testResult.success ? 'text-gain-green' : 'text-drop-red'">
         {{ testResult.message }}
       </p>
     </div>

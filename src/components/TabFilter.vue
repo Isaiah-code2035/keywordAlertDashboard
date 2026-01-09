@@ -1,5 +1,5 @@
 <template>
-  <div class="border-b border-gray-200 mb-6">
+  <div class="border-b border-seo-border mb-6">
     <nav class="-mb-px flex space-x-8">
       <button
         v-for="tab in tabs"
@@ -8,8 +8,8 @@
         :class="[
           'py-4 px-1 border-b-2 font-medium text-sm transition-colors',
           activeTab === tab.value
-            ? 'border-blue-600 text-blue-600'
-            : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+            ? 'border-seo-purple text-seo-purple'
+            : 'border-transparent text-seo-text-muted hover:text-seo-text hover:border-seo-border'
         ]"
       >
         {{ tab.label }}

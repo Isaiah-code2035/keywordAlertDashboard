@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom base styles */
+/* Custom base styles - SEOmonitor Dark Theme */
 body {
-  @apply m-0 bg-gray-50;
+  @apply m-0 bg-seo-bg-dark text-seo-text;
 }
 
 #app {
-  @apply min-h-screen;
+  @apply min-h-screen bg-seo-bg-dark;
 }

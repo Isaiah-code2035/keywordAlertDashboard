@@ -1,10 +1,10 @@
 <template>
-  <div class="min-h-screen bg-gray-50 p-6">
+  <div class="min-h-screen bg-seo-bg-dark p-6">
     <div class="max-w-7xl mx-auto">
       <!-- Header -->
       <header class="mb-8">
-        <h1 class="text-4xl font-bold text-gray-900">Keyword Alerts Dashboard</h1>
-        <p class="text-gray-600 mt-2">Monitor keyword ranking changes across all campaigns</p>
+        <h1 class="text-4xl font-bold text-white">Keyword Alerts Dashboard</h1>
+        <p class="text-seo-text-muted mt-2">Monitor keyword ranking changes across all campaigns</p>
       </header>
 
       <!-- Notification Settings -->
@@ -19,10 +19,10 @@
       <!-- Empty State -->
       <div
         v-else-if="!store.loading && store.campaignsWithAlerts.length === 0"
-        class="bg-white rounded-lg shadow-md p-12 text-center"
+        class="bg-seo-card border border-seo-border rounded-lg p-12 text-center"
       >
         <svg
-          class="mx-auto h-12 w-12 text-gray-400"
+          class="mx-auto h-12 w-12 text-seo-text-muted"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -34,8 +34,8 @@
             d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
           />
         </svg>
-        <h3 class="mt-2 text-sm font-medium text-gray-900">No campaigns found</h3>
-        <p class="mt-1 text-sm text-gray-500">
+        <h3 class="mt-2 text-sm font-medium text-white">No campaigns found</h3>
+        <p class="mt-1 text-sm text-seo-text-muted">
           Get started by adding campaigns to SEOmonitor.
         </p>
       </div>
@@ -55,20 +55,20 @@
       <!-- Summary Stats -->
       <div
         v-if="!store.loading && store.campaignsWithAlerts.length > 0"
-        class="mt-8 bg-white rounded-lg shadow-md p-6"
+        class="mt-8 bg-seo-card border border-seo-border rounded-lg p-6"
       >
-        <h2 class="text-xl font-bold text-gray-900 mb-4">Summary</h2>
+        <h2 class="text-xl font-bold text-white mb-4">Summary</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div class="text-center">
-            <p class="text-gray-600 text-sm">Total Campaigns</p>
-            <p class="text-3xl font-bold text-gray-900">{{ totalCampaigns }}</p>
+            <p class="text-seo-text-muted text-sm">Total Campaigns</p>
+            <p class="text-3xl font-bold text-white">{{ totalCampaigns }}</p>
           </div>
           <div class="text-center">
-            <p class="text-gray-600 text-sm">Total Drops</p>
+            <p class="text-seo-text-muted text-sm">Total Drops</p>
             <p class="text-3xl font-bold text-drop-red">{{ totalDrops }}</p>
           </div>
           <div class="text-center">
-            <p class="text-gray-600 text-sm">Total Gains</p>
+            <p class="text-seo-text-muted text-sm">Total Gains</p>
             <p class="text-3xl font-bold text-gain-green">{{ totalGains }}</p>
           </div>
         </div>
