@@ -220,10 +220,18 @@ function processKeywordData(data, startDate, endDate) {
 
     // Calculate previous rank from current rank and trend
     // If trend is -3, rank dropped by 3 (went from 1 to 4), so previousRank = 4 - (-3) = 1
-    const previousRank = currentRank !== null ? currentRank - trend : null
+    let previousRank = currentRank !== null ? currentRank - trend : null
+
+    // Cap previous rank at 100 (show as "99+" if over 100)
+    if (previousRank !== null && previousRank > 100) {
+      previousRank = '99+'
+    }
 
     // Calculate change (positive = gain/improvement, negative = drop/worse)
-    const change = previousRank !== null && currentRank !== null ? previousRank - currentRank : 0
+    // Only calculate numeric change if both ranks are numeric
+    const change = previousRank !== null && previousRank !== '99+' && currentRank !== null
+      ? previousRank - currentRank
+      : 0
 
     // Get search volume
     const searchVolume = keyword.search_data?.search_volume || 0
