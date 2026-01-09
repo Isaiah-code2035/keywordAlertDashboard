@@ -13,16 +13,6 @@
       <!-- Filter Bar -->
       <FilterBar @filtersApplied="handleFiltersApplied" />
 
-      <!-- Manual Notification Trigger (for testing) -->
-      <div class="mb-6 flex gap-3">
-        <button
-          @click="triggerNotifications"
-          class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium shadow-md"
-        >
-          🔔 Send Alerts Now (Test)
-        </button>
-      </div>
-
       <!-- Error Message -->
       <div
         v-if="store.error"
@@ -130,10 +120,7 @@ const handleFiltersApplied = async () => {
 const loadData = async () => {
   await store.fetchCampaigns()
   await store.fetchAllKeywordRanks()
-}
-
-const triggerNotifications = async () => {
-  console.log('Manually triggering notifications...')
+  // Automatically send notifications after data loads
   await store.checkAndSendNotifications()
 }
 

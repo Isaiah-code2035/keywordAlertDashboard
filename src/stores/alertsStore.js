@@ -148,15 +148,20 @@ export const useAlertsStore = defineStore('alerts', {
       this.error = null
     },
 
-    setNotificationEmail(email, enabled) {
-      this.notificationEmail = email
-      this.emailNotificationsEnabled = enabled
+    setBrowserNotificationsEnabled(enabled) {
+      this.browserNotificationsEnabled = enabled
     },
 
     async checkAndSendNotifications() {
+      // Only send notifications if browser notifications are enabled
+      if (!this.browserNotificationsEnabled) {
+        console.log('Browser notifications disabled, skipping...')
+        return
+      }
+
       const campaigns = this.campaignsWithAlerts
 
-      // Send individual campaign alerts
+      // Send individual campaign alerts for significant changes
       for (const campaign of campaigns) {
         if (campaign.drops > 0 || campaign.gains > 0) {
           await sendAlertNotification({
@@ -164,7 +169,7 @@ export const useAlertsStore = defineStore('alerts', {
             drops: campaign.drops,
             gains: campaign.gains,
             threshold: this.threshold,
-            userEmail: this.emailNotificationsEnabled ? this.notificationEmail : null
+            userEmail: null  // No email notifications
           })
         }
       }
@@ -174,12 +179,13 @@ export const useAlertsStore = defineStore('alerts', {
       const totalGains = campaigns.reduce((sum, c) => sum + c.gains, 0)
 
       if (totalDrops > 0 || totalGains > 0) {
+        console.log(`Sending summary: ${totalDrops} drops, ${totalGains} gains`)
         await sendSummaryNotification({
           totalCampaigns: campaigns.length,
           totalDrops,
           totalGains,
           threshold: this.threshold,
-          userEmail: this.emailNotificationsEnabled ? this.notificationEmail : null,
+          userEmail: null,  // No email notifications
           campaignsWithAlerts: campaigns
         })
       }
