@@ -13,20 +13,6 @@
       <!-- Filter Bar -->
       <FilterBar @filtersApplied="handleFiltersApplied" />
 
-      <!-- Error Message -->
-      <div
-        v-if="store.error"
-        class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6 flex items-center justify-between"
-      >
-        <span>{{ store.error }}</span>
-        <button
-          @click="store.clearError"
-          class="text-red-700 hover:text-red-900"
-        >
-          ×
-        </button>
-      </div>
-
       <!-- Loading State -->
       <LoadingSpinner v-if="store.loading" />
 
