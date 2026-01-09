@@ -1,9 +1,9 @@
 <template>
-  <div class="bg-seo-card border border-seo-border rounded-lg p-6 mb-6">
+  <div class="bg-white rounded-lg shadow-md p-6 mb-6">
     <div class="flex flex-wrap gap-4 items-end">
       <!-- Start Date -->
       <div class="flex-1 min-w-[200px]">
-        <label for="start-date" class="block text-sm font-medium text-seo-text mb-2">
+        <label for="start-date" class="block text-sm font-medium text-gray-700 mb-2">
           Start Date
         </label>
         <input
@@ -11,13 +11,13 @@
           type="date"
           v-model="localStartDate"
           @change="handleDateChange"
-          class="w-full px-4 py-2 bg-seo-bg border border-seo-border text-white rounded-lg focus:ring-2 focus:ring-seo-purple focus:border-seo-purple"
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-seo-purple focus:border-seo-purple"
         />
       </div>
 
       <!-- End Date -->
       <div class="flex-1 min-w-[200px]">
-        <label for="end-date" class="block text-sm font-medium text-seo-text mb-2">
+        <label for="end-date" class="block text-sm font-medium text-gray-700 mb-2">
           End Date
         </label>
         <input
@@ -25,20 +25,20 @@
           type="date"
           v-model="localEndDate"
           @change="handleDateChange"
-          class="w-full px-4 py-2 bg-seo-bg border border-seo-border text-white rounded-lg focus:ring-2 focus:ring-seo-purple focus:border-seo-purple"
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-seo-purple focus:border-seo-purple"
         />
       </div>
 
       <!-- Threshold Selector -->
       <div class="flex-1 min-w-[200px]">
-        <label for="threshold" class="block text-sm font-medium text-seo-text mb-2">
+        <label for="threshold" class="block text-sm font-medium text-gray-700 mb-2">
           Position Change Threshold
         </label>
         <select
           id="threshold"
           v-model="localThreshold"
           @change="handleThresholdChange"
-          class="w-full px-4 py-2 bg-seo-bg border border-seo-border text-white rounded-lg focus:ring-2 focus:ring-seo-purple focus:border-seo-purple"
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-seo-purple focus:border-seo-purple"
         >
           <option :value="3">±3 positions</option>
           <option :value="5">±5 positions</option>

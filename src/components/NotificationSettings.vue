@@ -1,10 +1,10 @@
 <template>
-  <div class="bg-seo-card border border-seo-border rounded-lg p-6 mb-6">
+  <div class="bg-white rounded-lg shadow-md p-6 mb-6">
     <div class="flex items-center justify-between">
       <div>
-        <h2 class="text-xl font-bold text-white">Browser Notifications</h2>
-        <p class="text-sm text-seo-text-muted mt-1">Get instant alerts when keywords drop or gain positions</p>
-        <p v-if="browserNotificationsStatus" class="text-sm mt-2" :class="browserNotificationsEnabled ? 'text-gain-green' : 'text-amber-500'">
+        <h2 class="text-xl font-bold text-gray-900">Browser Notifications</h2>
+        <p class="text-sm text-gray-600 mt-1">Get instant alerts when keywords drop or gain positions</p>
+        <p v-if="browserNotificationsStatus" class="text-sm mt-2" :class="browserNotificationsEnabled ? 'text-gain-green' : 'text-amber-600'">
           {{ browserNotificationsStatus }}
         </p>
       </div>
@@ -22,7 +22,7 @@
     </div>
 
     <!-- Test Button -->
-    <div v-if="browserNotificationsEnabled" class="mt-4 pt-4 border-t border-seo-border">
+    <div v-if="browserNotificationsEnabled" class="mt-4 pt-4 border-t">
       <button
         @click="testBrowserNotification"
         class="px-4 py-2 bg-seo-purple text-white rounded-lg hover:bg-seo-purple-dark transition-colors font-medium text-sm"

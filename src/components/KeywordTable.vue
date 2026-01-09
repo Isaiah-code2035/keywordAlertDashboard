@@ -6,18 +6,18 @@
         v-model="searchQuery"
         type="text"
         placeholder="Search keywords..."
-        class="w-full px-4 py-2 bg-seo-bg border border-seo-border text-white rounded-lg focus:ring-2 focus:ring-seo-purple focus:border-seo-purple placeholder-seo-text-muted"
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-seo-purple focus:border-seo-purple"
       />
     </div>
 
     <!-- Table -->
-    <div class="overflow-x-auto bg-seo-card border border-seo-border rounded-lg">
-      <table class="min-w-full divide-y divide-seo-border">
-        <thead class="bg-seo-bg">
+    <div class="overflow-x-auto bg-white rounded-lg shadow">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
           <tr>
             <th
               @click="sortBy('keyword')"
-              class="px-6 py-3 text-left text-xs font-medium text-seo-text-muted uppercase tracking-wider cursor-pointer hover:bg-seo-card-hover"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
             >
               Keyword
               <span v-if="sortColumn === 'keyword'">
@@ -26,7 +26,7 @@
             </th>
             <th
               @click="sortBy('previousRank')"
-              class="px-6 py-3 text-left text-xs font-medium text-seo-text-muted uppercase tracking-wider cursor-pointer hover:bg-seo-card-hover"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
             >
               Previous Rank
               <span v-if="sortColumn === 'previousRank'">
@@ -35,7 +35,7 @@
             </th>
             <th
               @click="sortBy('currentRank')"
-              class="px-6 py-3 text-left text-xs font-medium text-seo-text-muted uppercase tracking-wider cursor-pointer hover:bg-seo-card-hover"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
             >
               Current Rank
               <span v-if="sortColumn === 'currentRank'">
@@ -44,7 +44,7 @@
             </th>
             <th
               @click="sortBy('change')"
-              class="px-6 py-3 text-left text-xs font-medium text-seo-text-muted uppercase tracking-wider cursor-pointer hover:bg-seo-card-hover"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
             >
               Change
               <span v-if="sortColumn === 'change'">
@@ -53,7 +53,7 @@
             </th>
             <th
               @click="sortBy('searchVolume')"
-              class="px-6 py-3 text-left text-xs font-medium text-seo-text-muted uppercase tracking-wider cursor-pointer hover:bg-seo-card-hover"
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
             >
               Search Volume
               <span v-if="sortColumn === 'searchVolume'">
@@ -62,24 +62,24 @@
             </th>
           </tr>
         </thead>
-        <tbody class="bg-seo-card divide-y divide-seo-border">
+        <tbody class="bg-white divide-y divide-gray-200">
           <tr v-if="filteredKeywords.length === 0">
-            <td colspan="5" class="px-6 py-4 text-center text-seo-text-muted">
+            <td colspan="5" class="px-6 py-4 text-center text-gray-500">
               No keywords found
             </td>
           </tr>
           <tr
             v-for="keyword in filteredKeywords"
             :key="keyword.keyword"
-            class="hover:bg-seo-card-hover"
+            class="hover:bg-gray-50"
           >
-            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
               {{ keyword.keyword }}
             </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-seo-text-muted">
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
               {{ keyword.previousRank || 'N/A' }}
             </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-seo-text-muted">
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
               {{ keyword.currentRank || 'N/A' }}
             </td>
             <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold">
@@ -87,13 +87,13 @@
                 :class="{
                   'text-gain-green': keyword.change > 0,
                   'text-drop-red': keyword.change < 0,
-                  'text-seo-text-muted': keyword.change === 0
+                  'text-gray-500': keyword.change === 0
                 }"
               >
                 {{ formatChange(keyword.change) }}
               </span>
             </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-seo-text-muted">
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
               {{ formatNumber(keyword.searchVolume) }}
             </td>
           </tr>
@@ -102,7 +102,7 @@
     </div>
 
     <!-- Pagination info -->
-    <div class="mt-4 text-sm text-seo-text-muted">
+    <div class="mt-4 text-sm text-gray-600">
       Showing {{ filteredKeywords.length }} keyword(s)
     </div>
   </div>
